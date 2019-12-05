@@ -10,7 +10,7 @@ include 'connectdb.php';
 ?>
 <?php
 $whichDoctor=$_POST['doctor'];
-echo $whichDoctor;
+//echo $whichDoctor;
 
 
    $query = 'DELETE FROM has WHERE license="' . $whichDoctor . '"';

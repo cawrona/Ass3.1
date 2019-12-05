@@ -17,11 +17,11 @@ session_start();
    $whichDoctor=$_SESSION['ohip'];
    $whichLicense=$_GET['doctor'];
 
-   echo $whichDoctor;
-   echo $whichLicense;
+  // echo $whichDoctor;
+   //echo $whichLicense;
 
 
-   $query= 'SELECT * FROM has WHERE license="' . $license . '"';
+   $query= 'SELECT * FROM has WHERE license="' . $whichLicense . '"';
 
    $result = mysqli_query($connection, $query);
   if(!$result)
@@ -34,9 +34,8 @@ session_start();
     }
   else
   {
-    $query2='INSERT INTO doctor values("' . $license . '","' . $whichDoctor . '")';
-    $result2 = mysqli_query($connection, $query2);
-    if (!mysqli_query($connection, $query)) {
+    $query2='INSERT INTO has values("' . $whichLicense . '","' . $whichDoctor . '")';
+    if (!mysqli_query($connection, $query2)) {
         die("Error: insert failed" . mysqli_error($connection));
     }
     echo "Doctor added!";
